@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Start {
     private static final Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) throws TooMuchPizzaException, NotEnoughPizzaException{
+    public static void main(String[] args) {
         final PizzaStorage storage = new PizzaStorage(10);
         printActionMenu();
         String action = scanner.nextLine();
@@ -15,8 +15,11 @@ public class Start {
             if ("show".equals(action)) {
                 System.out.println("Количество пиццы на складе: " + storage.getPizzaCount());
             } else if ("add".equals(action)) {
-                add(storage);
-                
+                try {
+                    add(storage);
+                } catch (TooMuchPizzaException e) {
+                    System.out.println("Невозможно добавить такое количество пиццы на склад");
+                }
             } else if ("take".equals(action)) {
                 try {
                     take(storage);
