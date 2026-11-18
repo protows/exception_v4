@@ -18,8 +18,11 @@ public class Start {
                 add(storage);
                 
             } else if ("take".equals(action)) {
-                take(storage);
-               
+                try {
+                    take(storage);
+                } catch (NotEnoughPizzaException e) {
+                    System.out.println("Недостаточное количество пиццы не складе");
+                }
             }
             System.out.println("Введите новую команду:");   
             action = scanner.nextLine();
