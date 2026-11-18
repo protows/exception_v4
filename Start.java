@@ -15,17 +15,11 @@ public class Start {
             if ("show".equals(action)) {
                 System.out.println("Количество пиццы на складе: " + storage.getPizzaCount());
             } else if ("add".equals(action)) {
-                try {
-                    add(storage);
-                } catch (TooMuchPizzaException e) {
-                    System.out.println("Невозможно добавить такое количество пиццы на склад");
-                }
+                add(storage);
+                
             } else if ("take".equals(action)) {
-                try {
-                    take(storage);
-                } catch (NotEnoughPizzaException e) {
-                    System.out.println("Недостаточное количество пиццы не складе");
-                }
+                take(storage);
+               
             }
             System.out.println("Введите новую команду:");   
             action = scanner.nextLine();
